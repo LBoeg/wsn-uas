@@ -1,0 +1,48 @@
+<head>
+  <title>WSN UAS Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<head>
+  <h1 class="title">WSN with Extended Reach via UAS</h1>
+</head>
+
+<body>
+  {{> home}}
+  {{> cp}}
+  {{> map}}
+  {{> hello2}}
+</body>
+
+<template name="map">
+    <div class="notice">
+      <button>Test</button>
+    </div>
+    <div id="container">
+      <div id="map" class="map"></div>
+    </div>
+</template>
+
+<template name="home">
+  <div class="notice">
+    Select where the experiment is taking place:<br>
+    <button>Home</button>
+    <p>Testing: {{counterHome}}</p>
+  </div>
+</template>
+
+<template name="cp">
+  <div class="notice">
+    <button>College Park</button>
+    <p>Testing: {{counterCP}}</p>
+  </div>
+</template>
+
+<template name="hello2">
+  <div class="notice">
+    More Options (These don't do anything):<br>
+    <button>Button 1</button>
+    <button>Button 2</button>
+  </div>
+</template>
+
