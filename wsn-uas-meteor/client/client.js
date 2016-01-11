@@ -14,6 +14,27 @@ var myIcon = L.icon({
 var lat = 38.9875;
 var lon = -76.9373;
 
+Template.table.helpers({
+  clat: 38.9875, 
+  clong: -76.9373,
+  elat: 38.9879,
+  elong: -76.9376,
+  qlat: 38.9876,
+  qlong: -76.9375
+});
+
+/*
+Template.table.events({
+  'click button': function () {
+    Session.set('counterHome', 1);
+    Session.set('counterCP', 0);
+    lat = 39.700554;
+    lon = -76.536123;
+    map.setView([lat, lon], 18);
+  }
+});
+*/
+
 Session.setDefault('counterHome', 0);
 Session.setDefault('counterCP', 1);
 
@@ -49,7 +70,7 @@ Template.cp.events({
   }
 });
 
-// create marker collection
+// create marker collection --> (move to ../lib/collections.js?)
 var Markers = new Meteor.Collection('markers');
 
 Meteor.subscribe('markers');
@@ -68,6 +89,16 @@ Template.map.rendered = function() {
   //Esri_WorldImagery.addTo(map);
 
   L.tileLayer.provider('Thunderforest.Outdoors').addTo(map);
+  
+  /*
+  L.tileLayer.provider('MapBox', {
+    id: 'lboeg.om2d9hj2', 
+    accessToken: 'pk.eyJ1IjoibGJvZWciLCJhIjoiY2lqYWkzMzdqMDA5ZnYxbTR5NHo3Y3EwNCJ9.Lh2wr93Bsmr7_HGtvVC7EQ#9'
+  }).addTo(map);
+  */
+
+  //L.tileLayer('https://api.mapbox.com/v4/lboeg.om2d9hj2/0/0/0.png?access_token=pk.eyJ1IjoibGJvZWciLCJhIjoiY2lqYWloOGhyMDA5NnVsa251Zm5rdmFpayJ9.Q-YGoIpBLlZePsI9fkdXLQ', {
+  //}).addTo(map);
 
   map.on('click', function(event) {
     Markers.insert({latlng: event.latlng});

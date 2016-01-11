@@ -1,6 +1,8 @@
 <head>
   <title>WSN UAS Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 </head>
 
 <head>
@@ -8,21 +10,68 @@
 </head>
 
 <body>
-  {{> home}}
-  {{> cp}}
+  <!--{{> home}}
+  {{> cp}}-->
+
+  {{> switch}}
   {{> map}}
+  <hr>
   {{> hello2}}
+  <hr>
+  {{> table}}
+
 </body>
+
+<template name="switch">
+  <p align="center">Select where the experiment is taking place:</p>
+  <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+  </div>
+</template>
 
 <template name="map">
     <div class="notice">
-      <button>Test</button>
+      <!--<button>Test</button>-->
     </div>
     <div id="container">
       <div id="map" class="map"></div>
     </div>
 </template>
 
+<template name="table">
+  <div class="notice">
+    <table  align="center" border="1" style="width:80%">
+      <tr>
+        <th>Device</th>
+        <th>Latitude</th> 
+        <th>Longitude</th>
+      </tr>
+      <tr style="background-color:lightgrey;">
+        <td>Coordinator</td>
+        <td>{{clat}}</td>
+        <td>{{clong}}</td>
+      </tr>
+      <tr>
+        <td>End Device</td>
+        <td>{{elat}}</td>
+        <td>{{elong}}</td>
+      </tr>
+      <tr style="background-color:lightgrey;">
+        <td>Quadcopter</td>
+        <td>{{qlat}}</td>
+        <td>{{qlong}}</td>
+      </tr>
+    </table>
+    <p align="center">Refresh Rate: 1 second</p>
+  </div>
+</template>
+
+
+<!-- Removed the following buttons -->
 <template name="home">
   <div class="notice">
     Select where the experiment is taking place:<br>
