@@ -89,16 +89,6 @@ Template.map.rendered = function() {
   //Esri_WorldImagery.addTo(map);
 
   L.tileLayer.provider('Thunderforest.Outdoors').addTo(map);
-  
-  /*
-  L.tileLayer.provider('MapBox', {
-    id: 'lboeg.om2d9hj2', 
-    accessToken: 'pk.eyJ1IjoibGJvZWciLCJhIjoiY2lqYWkzMzdqMDA5ZnYxbTR5NHo3Y3EwNCJ9.Lh2wr93Bsmr7_HGtvVC7EQ#9'
-  }).addTo(map);
-  */
-
-  //L.tileLayer('https://api.mapbox.com/v4/lboeg.om2d9hj2/0/0/0.png?access_token=pk.eyJ1IjoibGJvZWciLCJhIjoiY2lqYWloOGhyMDA5NnVsa251Zm5rdmFpayJ9.Q-YGoIpBLlZePsI9fkdXLQ', {
-  //}).addTo(map);
 
   map.on('click', function(event) {
     Markers.insert({latlng: event.latlng});
